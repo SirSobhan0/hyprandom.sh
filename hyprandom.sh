@@ -25,7 +25,7 @@ usage() {
     echo "Options:"
     echo "  -s <source>   Specify wallpaper source."
     echo "  -u            Use unsafe mode (enables sketchy/NSFW)."
-    echo "  -q            Custom query for wallhaven and unsplash/Wallpaper url for url source."
+    echo "  -q            Use custom query for supported sources/url for fetching from url."
     echo "  -h            Display this help message."
     exit 1
 }
