@@ -180,9 +180,11 @@ fetch_from_nekosmoe() {
 
     wallpaper_url="https://nekos.moe/image/${wallpaper_id}"
     
-    curl -sS --fail -O --output-dir "$WALLPAPER_DIR" "$wallpaper_url"
+    file_name=nekos_${wallpaper_id}.jpg
 
-    echo "$WALLPAPER_DIR/$(basename "$wallpaper_url")"
+    curl -sS --fail -o ${file_name} --output-dir "$WALLPAPER_DIR" "$wallpaper_url"
+
+    echo "$WALLPAPER_DIR/${file_name}"
 }
 
 fetch_from_url() {
