@@ -169,6 +169,22 @@ fetch_from_yandere() {
     echo "$WALLPAPER_DIR/$(basename "$wallpaper_url")"
 }
 
+fetch_from_nekosmoe() {
+
+    wallpaper_id=$(curl -H "Authorization: ${NEKOS_TOKEN}" "https://nekos.moe/api/v1/random/image?nsfw=${NSFW}" | jq -r ".images[].id")
+    
+    if [ -z "$wallpaper_id" ] || [ "$wallpaper_id" == "null" ]; then
+        echo "Error: Failed to get a wallpaper URL. Check your query or API key." >&2
+        exit 1
+    fi
+
+    wallpaper_url="https://nekos.moe/image/${wallpaper_id}"
+    
+    curl -sS --fail -O --output-dir "$WALLPAPER_DIR" "$wallpaper_url"
+
+    echo "$WALLPAPER_DIR/$(basename "$wallpaper_url")"
+}
+
 fetch_from_url() {
     curl -sS --fail -O --output-dir "$WALLPAPER_DIR" "$CUSTOM_QUERY"
     echo "$WALLPAPER_DIR/$(basename "$CUSTOM_QUERY")"
@@ -243,6 +259,9 @@ case $SOURCE in
     ;;
   "yandere")
     WALLPAPER=$(fetch_from_yandere)
+    ;;
+  "nekos")
+    WALLPAPER=$(fetch_from_nekosmoe)
     ;;
   "url")
     WALLPAPER=$(fetch_from_url)
