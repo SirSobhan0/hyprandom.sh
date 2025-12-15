@@ -1,6 +1,16 @@
 # hyprandom
 
-## Usage: 
+## Current sources:
+wallhaven (wallhaven.cc)
+unsplash  (unsplash.com)
+waifuim   (waifu.im)
+waifupics (waifu.pics)
+konachan  (konachan.com/konachan.net)
+gelbooru  (gelbooru.com)
+yandere   (yande.re)
+nekos     (nekos.moe)
+
+## Usage:
 ```
 hyprandom.sh [-s <source>] [-u] [-q]
 Options:
@@ -9,6 +19,8 @@ Options:
   -q            Use custom query for some sources/url for fetching from url.
   -h            Display this help message.
 ```
+
+### For some sources you may have to fill the corresponding api key to work. just rename the ```apikeys.sample``` to ```apikeys``` and enter your obtained keys.
 
 ## TODO:
 - [x] Add konachan.com

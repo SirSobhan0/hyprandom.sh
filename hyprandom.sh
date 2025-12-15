@@ -21,7 +21,7 @@ NSFW=false
 
 usage() {
     # Usage information is still useful for manual runs
-    echo "Usage: $(basename "$0") [-s <source>] [-u] [-m] [-h]"
+    echo "Usage: $(basename "$0") [-s <source>] [-u] [-h]"
     echo "Options:"
     echo "  -s <source>   Specify wallpaper source."
     echo "  -u            Use unsafe mode (enables sketchy/NSFW)."
