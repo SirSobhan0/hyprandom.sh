@@ -2,7 +2,7 @@
 
 ## Usage: 
 ```
-hyprandomV2.sh [-s <source>] [-u] [-q]
+hyprandom.sh [-s <source>] [-u] [-q]
 Options:
   -s <source>   Specify wallpaper source.
   -u            Use unsafe mode for sources.
