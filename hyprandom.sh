@@ -193,7 +193,7 @@ fetch_from_url() {
 }
 
 fetch_from_local() {
-    wallpaper_path=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) | shuf -n 1)
+    wallpaper_path=$(find "$WALLPAPER_DIR" -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) ! -path "$(readlink -f "$WALLPAPER_DIR/current.png")" ! -name "current.png" | shuf -n 1)
 
     if [ -z "$wallpaper_path" ]; then
         echo "Error: No image files found in $WALLPAPER_DIR." >&2
@@ -204,7 +204,7 @@ fetch_from_local() {
 }
 
 fetch_from_fav() {
-    wallpaper_path=$(find "$FAV_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) | shuf -n 1)
+    wallpaper_path=$(find "$FAV_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.jpeg" \) ! -path "$(readlink -f "$WALLPAPER_DIR/current.png")" ! -name "current.png" | shuf -n 1)
 
     if [ -z "$wallpaper_path" ]; then
         echo "Error: No image files found in $WALLPAPER_DIR." >&2
