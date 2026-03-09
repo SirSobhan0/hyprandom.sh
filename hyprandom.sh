@@ -287,9 +287,7 @@ if [ -f "$WALLPAPER" ]; then
 	WALLPAPER="${WALLPAPER}.png"
     fi
     ln -sf "$WALLPAPER" "$WALLPAPER_DIR/current.png"
-    hyprctl hyprpaper preload "$WALLPAPER"
     hyprctl hyprpaper wallpaper ",$WALLPAPER"
-    hyprctl hyprpaper unload all
 else
     if [ ! -z "$WALLPAPER" ]; then
         echo "Error: Final wallpaper path is not a valid file: $WALLPAPER" >&2
